@@ -36,7 +36,6 @@ public class UserLoginController {
         User usu=(User)auth.getPrincipal();
         String jwtToken = tokenProvider.generateToken(auth);
         UserJwt usu2=new UserJwt(usu.getUsername(),usu.getRole(),jwtToken);
-        //es retorna userName, Avatar, Rol i Token
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(usu2);
     }
